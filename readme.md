@@ -65,7 +65,8 @@ Las siguientes tecnologías se han seleccionado para cumplir con tareas específ
 **Microservicios de Infraestructura:**  
 Estos microservicios son esenciales para la arquitectura de la aplicación y pueden ser reutilizados en diferentes proyectos. Se centran en la gestión de la configuración, el monitoreo, la comunicación entre servicios y la tolerancia a fallos.
 
-![](/home/josepc/snap/marktext/9/.config/marktext/images/2024-10-29-14-23-12-microservicios-de-arquitectura.png)
+![microservicios-de-arquitectura](https://github.com/user-attachments/assets/1fd0465d-55ba-4ee9-9d4e-892a7afb59e6)
+
 
 **Microservicios de Funcionalidad:**  
 Estos microservicios desarrollan la funcionalidad específica de la aplicación para la gestión de cine (Back Office) y la plataforma de interacción para los clientes (Front Office). 
@@ -74,11 +75,13 @@ La comunicación entre microservicios se hace mediante la comunicación basada e
 
 - Back Office
   
-  ![microservicios-de-funcionalidad-back-office.png](/home/josepc/Documents/Work/Proyects/springboot-hibernate-angular/microservicios-de-funcionalidad-back-office.png)
+![microservicios-de-funcionalidad-back-office](https://github.com/user-attachments/assets/b2c7fcc9-79b6-43ae-bcfc-58af585ae0e9)
+
 
 - Front Office
   
-  ![](/home/josepc/snap/marktext/9/.config/marktext/images/2024-10-29-13-08-03-microservicios-de-funcionalidad-front-office.png.png)
+ ![microservicios-de-funcionalidad-front-office png](https://github.com/user-attachments/assets/3be8a2f8-5e5c-4a84-8539-c642cd5507f2)
+
   
   ### 
 
