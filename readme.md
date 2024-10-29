@@ -1,6 +1,6 @@
 ### Proyecto: CineManager
 
-**Tecnologías: Java Spring Boot, Hibernate, Angular **
+**Tecnologías: Java Spring Boot, Hibernate, Angular**
 
 CineManager es una aplicación web diseñada para la gestión integral de un cine, que consta de dos capas principales:
 
