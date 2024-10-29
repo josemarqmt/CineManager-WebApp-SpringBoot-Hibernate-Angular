@@ -65,7 +65,8 @@ Las siguientes tecnologías se han seleccionado para cumplir con tareas específ
 **Microservicios de Infraestructura:**  
 Estos microservicios son esenciales para la arquitectura de la aplicación y pueden ser reutilizados en diferentes proyectos. Se centran en la gestión de la configuración, el monitoreo, la comunicación entre servicios y la tolerancia a fallos.
 
-![microservicios-de-arquitectura](https://github.com/user-attachments/assets/1fd0465d-55ba-4ee9-9d4e-892a7afb59e6)
+![microservicios-de-arquitectura](https://github.com/user-attachments/assets/a7936030-3da1-4f37-a471-d41c3a3bf092)
+
 
 
 **Microservicios de Funcionalidad:**  
