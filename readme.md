@@ -9,7 +9,14 @@ CineManager es una aplicación web diseñada para la gestión integral de un cin
 
 ### Metodología de Desarrollo
 
-La aplicación se desarrolla bajo la metodología de Test-Driven Development (TDD), utilizando JUnit para garantizar la calidad del código. Además, se aplican los principios de Clean Code y SOLID para mantener un código legible, mantenible y escalable.
+La aplicación se desarrolla bajo la metodología de Test-Driven Development (TDD), utilizando JUnit para garantizar la calidad del código. Este enfoque permite que se escriban pruebas antes de implementar las funcionalidades, asegurando que cada componente del sistema se comporte según lo esperado.
+
+Además, se aplican los principios de Clean Code y SOLID para mantener un código legible, mantenible y escalable. Estos principios ayudan a evitar la complejidad y a mejorar la comprensión del código por parte de otros desarrolladores.
+
+Dentro de este proceso, se utilizará Postman como herramienta para probar las APIs de los microservicios. Postman facilitará la verificación de las respuestas y el comportamiento de los servicios, permitiendo asegurar que cada funcionalidad se implemente correctamente antes de pasar a la siguiente fase de desarrollo.
+
+Además, se utilizará Swagger para generar automáticamente la documentación de la API de cada microservicio, Swagger permitirá describir de forma estructurada las diferentes rutas y modelos de datos de la API.
+
 
 ### Arquitectura de Microservicios
 
