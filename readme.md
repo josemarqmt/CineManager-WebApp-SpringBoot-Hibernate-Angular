@@ -47,7 +47,7 @@ Las siguientes tecnologías se han seleccionado para cumplir con tareas específ
 
 5. **Comunicación entre Microservicios:**
    
-   - **Kafka** se utiliza para la comunicación asíncrona entre microservicios, garantizando la entrega de mensajes y la gestión de eventos de manera eficiente.
+   - **rabbitmq** se utiliza para la comunicación asíncrona entre microservicios, garantizando la entrega de mensajes y la gestión de eventos de manera eficiente.
 
 6. **Tracedo Distribuido de Logs:**
    
@@ -79,7 +79,7 @@ Estos microservicios son esenciales para la arquitectura de la aplicación y pue
 **Microservicios de Funcionalidad:**  
 Estos microservicios desarrollan la funcionalidad específica de la aplicación para la gestión de cine (Back Office) y la plataforma de interacción para los clientes (Front Office). 
 
-La comunicación entre microservicios se hace mediante la comunicación basada en eventos haciendo uso de **Kafka** y de la mensajería asíncrona.
+La comunicación entre microservicios se hace mediante la comunicación basada en eventos haciendo uso de **rabbitmq** y de la mensajería asíncrona.
 
 - Back Office
   
