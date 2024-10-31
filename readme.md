@@ -61,7 +61,8 @@ Las siguientes tecnologías se han seleccionado para cumplir con tareas específ
      - **Timeout:** Se configura un tiempo máximo para la respuesta de un servicio; si se supera, el proceso se detiene, evitando esperas prolongadas.
      - **Rate Limiting:** Se implementa para limitar la cantidad de solicitudes que un microservicio puede manejar en un periodo determinado, protegiendo la infraestructura de sobrecargas.
      - **Fallback:** Se definen respuestas alternas o mecanismos de recuperación en caso de que un microservicio no esté disponible, mejorando la experiencia del usuario.
-       8- **Seguridad de la Aplicación:**
+
+8- **Seguridad de la Aplicación:**
    - **Spring Security y JWT (JSON Web Tokens):** Se utiliza **Spring Security** en combinación con **JWT** para gestionar la autenticación y autorización de usuarios en la aplicación. Esta estrategia permite que, una vez autenticado, el usuario reciba un token **JWT**, que se incluye en cada solicitud subsiguiente. Así, el sistema valida que solo los usuarios autorizados pueden acceder a recursos específicos sin la necesidad de autenticarse en cada solicitud.
      - **Autenticación:** **Spring Security** verifica las credenciales del usuario y, al autenticarse, se genera un token **JWT** que el cliente almacena de manera segura.
      - **Autorización:** **Spring Security** verifica los permisos específicos que tiene cada usuario en función del token **JWT**, protegiendo endpoints de acceso no autorizado.
