@@ -88,9 +88,8 @@ La comunicación entre microservicios se hace mediante la comunicación basada e
 
 - Front Office
   
- ![microservicios-de-funcionalidad-front-office png](https://github.com/user-attachments/assets/3be8a2f8-5e5c-4a84-8539-c642cd5507f2)
+![microservicios-de-funcionalidad-front-office png](https://github.com/user-attachments/assets/938d349a-3504-426d-beb7-d78e3cbad1a1)
 
-  
 
 ### FRONT-END
 
