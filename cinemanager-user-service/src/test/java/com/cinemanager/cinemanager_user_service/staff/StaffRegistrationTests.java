@@ -51,7 +51,7 @@ class StaffRegistrationTests {
 	private String missingFields;
 	@Value("${error_messages.name_already_exists}")
 	private String nameAlreadyExists;
-//	@Value("${error_messages.email_already_exists}")
+ 	@Value("${error_messages.email_already_exists}")
 	private String emailAlreadyExists;
 
 	@Value("${fields.user_role}")

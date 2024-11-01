@@ -37,6 +37,9 @@ class StaffLoginTests {
     @Value("${fields.password}")
     private String passwordField;
 
+    @Value("${staff_role.admin")
+    private String staffAdmin;
+
     @BeforeAll
     static void setUp() {
         DataUtil dataUtil = new DataUtil();
@@ -54,7 +57,7 @@ class StaffLoginTests {
                 .andExpect(jsonPath("$.name").value("admin"))
                 .andExpect(jsonPath("$.last_name").value("admin"))
                 .andExpect(jsonPath("$.email").value("admin@admin.com"))
-                .andExpect(jsonPath("$.user_role").value("ADMIN"));
+                .andExpect(jsonPath("$.user_role").value(staffAdmin));
     }
 
     @Test
