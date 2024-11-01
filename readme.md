@@ -45,15 +45,11 @@ Las siguientes tecnologías se han seleccionado para cumplir con tareas específ
    
    - **Eureka** permite el descubrimiento y la gestión de las instancias de microservicios, mejorando la comunicación y la conectividad entre ellos.
 
-5. **Comunicación entre Microservicios:**
-   
-   - **rabbitmq** se utiliza para la comunicación asíncrona entre microservicios, garantizando la entrega de mensajes y la gestión de eventos de manera eficiente.
-
-6. **Tracedo Distribuido de Logs:**
+5. **Tracedo Distribuido de Logs:**
    
    - Se utiliza **Jaeger** para implementar el rastreo distribuido, lo que proporciona un registro centralizado y claro del flujo de solicitudes a través de los microservicios, facilitando la depuración y el análisis de rendimiento.
 
-7. **Tolerancia a Fallos:**
+6. **Tolerancia a Fallos:**
    
    - Se utiliza **Resilience4j** para garantizar la resiliencia de la aplicación ante fallos, usando las siguientes estrategias:
      - **Circuit Breaker:** Detiene la ejecución de un microservicio si este devuelve un número elevado de errores, protegiendo el sistema de fallos en cascada.
@@ -80,7 +76,6 @@ Estos microservicios son esenciales para la arquitectura de la aplicación y pue
 **Microservicios de Funcionalidad:**  
 Estos microservicios desarrollan la funcionalidad específica de la aplicación para la gestión de cine (Back Office) y la plataforma de interacción para los clientes (Front Office). 
 
-La comunicación entre microservicios se hace mediante la comunicación basada en eventos haciendo uso de **rabbitmq** y de la mensajería asíncrona.
 
 - Back Office
   
