@@ -40,29 +40,36 @@ class StaffLoginTests {
     @Value("${staff_role.admin")
     private String staffAdmin;
 
+    @Value("${fields_values_tests.name}")
+    private String nameValue;
+    @Value("${fields_values_tests.password}")
+    private String passwordValue;
+    @Value("${fields_values_tests.email}")
+    private String emailValue;
+
     @BeforeAll
     static void setUp() {
         DataUtil dataUtil = new DataUtil();
-        dataUtil.createStaffAdminIntoDatabase(); // name: admin, email: admin@admin.com, password: admin, user_role: ADMIN
+        dataUtil.createStaffAdminIntoDatabase();
     }
 
     @Test
     void testShouldLoginStaff() throws Exception {
-        String jsonRequest = "{\"email\":\"admin@admin.com\",\"password\":\"admin\"}";
+        String jsonRequest = "{\"email\":\"" + emailValue + "\",\"password\":\"" + passwordValue + "\"}";
         mockMvc.perform(post(POST_LOGIN)
                         .contentType("application/json")
                         .content(jsonRequest))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").exists())
-                .andExpect(jsonPath("$.name").value("admin"))
-                .andExpect(jsonPath("$.last_name").value("admin"))
-                .andExpect(jsonPath("$.email").value("admin@admin.com"))
+                .andExpect(jsonPath("$.name").value(nameValue))
+                .andExpect(jsonPath("$.last_name").value(nameValue))
+                .andExpect(jsonPath("$.email").value(emailValue))
                 .andExpect(jsonPath("$.user_role").value(staffAdmin));
     }
 
     @Test
     void testShouldNotLoginStaffByInvalidEmail() throws Exception {
-        String jsonRequest = "{\"email\":\"notexist@staff.com\",\"password\":\"incorrectpassword\"}";
+        String jsonRequest = "{\"email\":\"notexist@email.com\",\"password\":\"" + passwordValue + "\"}";
         mockMvc.perform(post(POST_LOGIN)
                         .contentType("application/json")
                         .content(jsonRequest))
@@ -73,7 +80,7 @@ class StaffLoginTests {
 
     @Test
     void testShouldNotLoginStaffByInvalidPassword() throws Exception {
-        String jsonRequest = "{\"email\":\"admin@admin.com\",\"password\":\"incorrectpassword\"}";
+        String jsonRequest = "{\"email\":\"" + emailValue + "\",\"password\":\"incorrectpassword\"}";
         mockMvc.perform(post(POST_LOGIN)
                         .contentType("application/json")
                         .content(jsonRequest))
