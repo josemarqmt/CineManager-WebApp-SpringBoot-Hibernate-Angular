@@ -112,7 +112,7 @@ class StaffRegistrationTests {
 
 		// Check in database
 		DataUtil dataUtil = new DataUtil();
-		assert dataUtil.isStaffEmployee(jsonPath("$.id").value(String.class).toString());
+		assert dataUtil.checkStaffEmployeeExists(jsonPath("$.id").value(String.class).toString());
 	}
 
 	@Test
@@ -131,7 +131,7 @@ class StaffRegistrationTests {
 
 		// Check in database
 		DataUtil dataUtil = new DataUtil();
-		assert dataUtil.isStaffSupervisor(jsonPath("$.id").value(String.class).toString());
+		assert dataUtil.checkStaffSupervisorExists(jsonPath("$.id").value(String.class).toString());
 	}
 
 	@Test
@@ -150,7 +150,7 @@ class StaffRegistrationTests {
 
 		// Check in database
 		DataUtil dataUtil = new DataUtil();
-		assert dataUtil.isStaffAdmin(jsonPath("$.id").value(String.class).toString());
+		assert dataUtil.checkStaffAdminExists(jsonPath("$.id").value(String.class).toString());
 	}
 
 	@Test
