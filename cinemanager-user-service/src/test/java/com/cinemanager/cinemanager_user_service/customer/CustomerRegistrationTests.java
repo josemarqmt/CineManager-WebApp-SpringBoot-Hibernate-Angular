@@ -1,8 +1,8 @@
 package com.cinemanager.cinemanager_user_service.customer;
 
-import com.cinemanager.cinemanager_user_service.dataFormats.EmailFormatTest;
-import com.cinemanager.cinemanager_user_service.dataFormats.PasswordFormatTest;
-import com.cinemanager.cinemanager_user_service.dataFormats.UserNameFormatTest;
+import com.cinemanager.cinemanager_user_service.util.dataFormatsUtil.EmailFormatTestUtil;
+import com.cinemanager.cinemanager_user_service.util.dataFormatsUtil.PasswordFormatTestUtil;
+import com.cinemanager.cinemanager_user_service.util.dataFormatsUtil.UserNameFormatTestUtil;
 import com.cinemanager.cinemanager_user_service.util.DataUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +28,9 @@ class CustomerRegistrationTests {
     private MockMvc mockMvc;
 
 
-    private UserNameFormatTest userNameFormatTest;
-    private EmailFormatTest emailFormatTest;
-    private PasswordFormatTest passwordFormatTest;
+    private UserNameFormatTestUtil userNameFormatTest;
+    private EmailFormatTestUtil emailFormatTest;
+    private PasswordFormatTestUtil passwordFormatTest;
 
 
     private static final String POST_REGISTER_CUSTOMER = "/api/customer/register";

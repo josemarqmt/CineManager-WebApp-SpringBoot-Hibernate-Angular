@@ -1,6 +1,5 @@
-package com.cinemanager.cinemanager_user_service.dataFormats;
+package com.cinemanager.cinemanager_user_service.util.dataFormatsUtil;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -10,7 +9,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class PasswordFormatTest { ;
+public class PasswordFormatTestUtil { ;
     @Value("${error_messages.password_invalid_format.at_least_one_special_character}")
     private String passwordNoSpecialCharacter;
     @Value("${error_messages.password_invalid_format.at_least_one_lowercase}")

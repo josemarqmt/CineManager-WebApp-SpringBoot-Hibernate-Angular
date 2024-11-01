@@ -1,4 +1,4 @@
-package com.cinemanager.cinemanager_user_service.dataFormats;
+package com.cinemanager.cinemanager_user_service.util.dataFormatsUtil;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.web.servlet.MockMvc;
@@ -9,7 +9,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class UserNameFormatTest {
+public class UserNameFormatTestUtil {
     @Value("${error_messages.name_invalid_format.alphanumeric}")
     private String nameNotAlphanumeric;
     @Value("${error_messages.name_invalid_format.between_3_and_20_characters}")

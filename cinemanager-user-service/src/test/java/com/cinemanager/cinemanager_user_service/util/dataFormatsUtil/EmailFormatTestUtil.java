@@ -1,4 +1,4 @@
-package com.cinemanager.cinemanager_user_service.dataFormats;
+package com.cinemanager.cinemanager_user_service.util.dataFormatsUtil;
 
 
 import org.springframework.beans.factory.annotation.Value;
@@ -8,7 +8,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class EmailFormatTest {
+public class EmailFormatTestUtil {
     @Value("${error_messages.email_invalid_format}")
     private String emailInvalidFormat;
 
