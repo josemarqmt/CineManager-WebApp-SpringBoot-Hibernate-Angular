@@ -11,7 +11,7 @@ error_messages:
   name_invalid_format:
     alphanumeric: "name must be alphanumeric"
     between_3_and_20_characters: "name must be between 3 and 20 characters"
-  email_invalid_format: email must have a valid format
+  email_invalid_format: "email must have a valid format"
   password_invalid_format:
     at_least_one_special_character: "Password must have at least one special character"
     at_least_one_lowercase: "Password must have at least one lowercase letter"
@@ -19,6 +19,9 @@ error_messages:
     at_least_one_number: "Password must have at least one number"
     more_than_thirty: "Password must be between 8 and 30 characters"
     less_than_eight: "Password must be between 8 and 30 characters"
+  user_not_found:
+    email: "User with email %s not found"
+    password: "Invalid password"
 
 fields:
   name: "name"
