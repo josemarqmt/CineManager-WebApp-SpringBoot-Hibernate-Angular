@@ -45,13 +45,13 @@ class StaffRegistrationTests {
 	@Value("${staff_role.employee}")
 	private String staffRoleEmployee;
 
-	@Value("${error_messges.user_role_not_found}")
+	@Value("${error_messages.user_role_not_found}")
 	private String staffRoleNotFound;
-	@Value("${error_messges.missing_fields}")
+	@Value("${error_messages.missing_fields}")
 	private String missingFields;
-	@Value("${error_messges.name_already_exists}")
+	@Value("${error_messages.name_already_exists}")
 	private String nameAlreadyExists;
-	@Value("${error_messges.email_already_exists}")
+//	@Value("${error_messages.email_already_exists}")
 	private String emailAlreadyExists;
 
 	@Value("${fields.user_role}")
