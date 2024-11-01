@@ -29,3 +29,8 @@ fields:
   password: "password"
   email: "email"
   user_role: "user_role"
+
+fields_values_tests:
+  name: "test"
+  password: "@aA1aaaaaaa"
+  email: "email@email.com"

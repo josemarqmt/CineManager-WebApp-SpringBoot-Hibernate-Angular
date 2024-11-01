@@ -3,6 +3,7 @@ package com.cinemanager.cinemanager_user_service.staff;
 import com.cinemanager.cinemanager_user_service.dataFormats.EmailFormatTest;
 import com.cinemanager.cinemanager_user_service.dataFormats.PasswordFormatTest;
 import com.cinemanager.cinemanager_user_service.dataFormats.UserNameFormatTest;
+import com.cinemanager.cinemanager_user_service.util.DataUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 class StaffRegistrationTests {
+
 
 	@Test
 	void contextLoads() {}
@@ -57,13 +59,22 @@ class StaffRegistrationTests {
 	@Value("${fields.user_role}")
 	private String userRoleField;
 
+	@Value("${fields_values_tests.name}")
+	private String nameValue;
+	@Value("${fields_values_tests.password}")
+	private String passwordValue;
+	@Value("${fields_values_tests.email}")
+	private String emailValue;
+
+
+
 
 
 	// Formats tests
 	@Test
     public void testNameInvalidFormat() throws Exception {
-		String jsonRequestFirstName =  "{\"name\":\"%s\", \"last_name\":\"admin\", \"password\":\"admin\",\"email\":\"admin@admin.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
-		String jsonRequestLastName =  "{\"name\":\"admin\", \"last_name\":\"%s\", \"password\":\"admin\",\"email\":\"admin@admin.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
+		String jsonRequestFirstName =  "{\"name\":\"%s\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\",\"email\":\"" + emailValue + "\",\"user_role\":\"" + staffRoleAdmin + "\"}";
+		String jsonRequestLastName =  "{\"name\":\"" + nameValue + "\", \"last_name\":\"%s\", \"password\":\"" + passwordValue + "\",\"email\":\"" + emailValue + "\",\"user_role\":\"" + staffRoleAdmin + "\"}";
 
 		userNameFormatTest.testInvalidNamesShouldReturnBadRequest(jsonRequestFirstName, POST_REGISTER_STAFF, mockMvc);
 		userNameFormatTest.testInvalidNamesShouldReturnBadRequest(jsonRequestLastName, POST_REGISTER_STAFF, mockMvc);
@@ -71,14 +82,14 @@ class StaffRegistrationTests {
 
 	@Test
     public void testEmailInvalidFormats() throws Exception {
-		String jsonRequest =  "{\"name\":\"admin\", \"last_name\":\"admin\", \"password\":\"admin\",\"email\":\"%s\",\"user_role\":\"" + staffRoleAdmin + "\"}";
+		String jsonRequest =  "{\"name\":\"" + nameValue + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\",\"email\":\"%s\",\"user_role\":\"" + staffRoleAdmin + "\"}";
 
 		emailFormatTest.testInvalidEmailsShouldReturnBadRequest(jsonRequest, POST_REGISTER_STAFF, mockMvc);
 	}
 
 	@Test
     public void testPasswordInvalidFormat() throws Exception {
-		String jsonRequest =  "{\"name\":\"admin\", \"last_name\":\"admin\", \"password\":\"%s\",\"email\":\"admin@admin.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
+		String jsonRequest =  "{\"name\":\"" + nameValue + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"%s\",\"email\":\"" + emailValue + "\",\"user_role\":\"" + staffRoleAdmin + "\"}";
 
 		passwordFormatTest.testInvalidPasswordsShouldReturnBadRequest(jsonRequest, POST_REGISTER_STAFF, mockMvc);
 	}
@@ -87,49 +98,53 @@ class StaffRegistrationTests {
 	// Registration By Role Tests
 	@Test
     public void testShouldRegisterStaffEmployee() throws Exception {
-		String jsonRequest = "{\"name\":\"employee\", \"last_name\":\"employee\", \"password\":\"employee\",\"email\":\"employee@employee.com\",\"user_role\":\"" + staffRoleEmployee + "\"}";
+		String jsonRequest = "{\"name\":\"" + nameValue + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\",\"email\":\"" + emailValue + "\",\"user_role\":\"" + staffRoleEmployee + "\"}";
+
 		mockMvc.perform(post("/api/staff/register")
 						.contentType("application/json")
 						.content(jsonRequest))
 				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.id").exists())
-				.andExpect(jsonPath("$.name").value("employee"))
-				.andExpect(jsonPath("$.last_name").value("employee"))
-				.andExpect(jsonPath("$.email").value("employee@employee.com"))
+				.andExpect(jsonPath("$.name").value(nameValue))
+				.andExpect(jsonPath("$.last_name").value(nameValue))
+				.andExpect(jsonPath("$.email").value(emailValue))
 				.andExpect(jsonPath("$.user_role").value(staffRoleEmployee));
 	}
 
 	@Test
     public void testShouldRegisterStaffSupervisor() throws Exception {
-		String jsonRequest = "{\"name\":\"supervisor\", \"last_name\":\"supervisor\", \"password\":\"supervisor\",\"email\":\"supervisor@supervisor.com\",\"user_role\":\"" + staffRoleSupervisor + "\"}";
+		String jsonRequest = "{\"name\":\"" + nameValue + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\",\"email\":\"" + emailValue + "\",\"user_role\":\"" + staffRoleSupervisor + "\"}";
+
 		mockMvc.perform(post("/api/staff/register")
 						.contentType("application/json")
 						.content(jsonRequest))
 				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.id").exists())
-				.andExpect(jsonPath("$.name").value("supervisor"))
-				.andExpect(jsonPath("$.last_name").value("supervisor"))
-				.andExpect(jsonPath("$.email").value("supervisor@supervisor.com"))
+				.andExpect(jsonPath("$.name").value(nameValue))
+				.andExpect(jsonPath("$.last_name").value(nameValue))
+				.andExpect(jsonPath("$.email").value(emailValue))
 				.andExpect(jsonPath("$.user_role").value(staffRoleSupervisor));
 	}
 
 	@Test
     public void testShouldRegisterStaffAdmin() throws Exception {
-		String jsonRequest = "{\"name\":\"admin\", \"last_name\":\"admin\", \"password\":\"admin\",\"email\":\"admin@admin.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
+		String jsonRequest = "{\"name\":\"" + nameValue + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\",\"email\":\"" + emailValue + "\",\"user_role\":\"" + staffRoleAdmin + "\"}";
+
 		mockMvc.perform(post("/api/staff/register")
 						.contentType("application/json")
 						.content(jsonRequest))
 				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.id").exists()) 
-				.andExpect(jsonPath("$.name").value("admin"))
-				.andExpect(jsonPath("$.last_name").value("admin"))
-				.andExpect(jsonPath("$.email").value("admin@admin.com")) 
+				.andExpect(jsonPath("$.name").value(nameValue))
+				.andExpect(jsonPath("$.last_name").value(nameValue))
+				.andExpect(jsonPath("$.email").value(emailValue))
 				.andExpect(jsonPath("$.user_role").value(staffRoleAdmin));
 	}
 
 	@Test
     public void testShouldNotRegisterStaffByInvalidRole() throws Exception {
-		String jsonRequest = "{\"name\":\"admin\", \"last_name\":\"admin\", \"password\":\"admin\",\"email\":\"admin@admin.com\",\"user_role\":\"INVALID_ROLE\"}";
+		String jsonRequest = "{\"name\":\"" + nameValue + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\",\"email\":\"" + emailValue + "\",\"user_role\":\"INVALID_ROLE\"}";
+
 		mockMvc.perform(post("/api/staff/register")
 						.contentType("application/json")
 						.content(jsonRequest))
@@ -142,7 +157,7 @@ class StaffRegistrationTests {
 	// Fields tests
 	@Test
     public void testMissingFieldsRegisterStaff() throws Exception {
-		String jsonRequest = "{\"name\":\"admin\", \"last_name\":\"admin\", \"password\":\"admin\"}"; // missing email and user_role
+		String jsonRequest =  "{\"name\":\"" + nameValue + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\"}"; // missing email and user_role
 		mockMvc.perform(post("/api/staff/register")
 						.contentType("application/json")
 						.content(jsonRequest))
@@ -154,38 +169,31 @@ class StaffRegistrationTests {
 
 	@Test
     public void testNameAlreadyExistsRegisterStaff() throws Exception {
-		String firstJsonRequest = "{\"name\":\"admin\", \"last_name\":\"admin\", \"password\":\"admin\",\"email\":\"admin@admin.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
-		String secondJsonRequest = "{\"name\":\"admin\", \"last_name\":\"admin\", \"password\":\"admin\",\"email\":\"admin2@admin.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
+		DataUtil dataUtil = new DataUtil();
+		dataUtil.createStaffAdminIntoDatabase();
 
-		// first registration
-		mockMvc.perform(post("/api/staff/register")
-				.contentType("application/json")
-				.content(firstJsonRequest));
+		String jsonRequest = "{\"name\":\"" + nameValue + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\",\"email\":\"different@email.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
 
-		// second registration
+
 		mockMvc.perform(post("/api/staff/register")
 						.contentType("application/json")
-						.content(secondJsonRequest))
+						.content(jsonRequest))
 				.andExpect(status().isConflict())
 				.andExpect(jsonPath("$.error.message").value(nameAlreadyExists));
 	}
 
 	@Test
     public void testEmailAlreadyExistsRegisterStaff() throws Exception {
-		String firstJsonRequest = "{\"name\":\"admin\", \"last_name\":\"admin\", \"password\":\"admin\",\"email\":\"admin@admin.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
-		String secondJsonRequest = "{\"name\":\"admin2\", \"last_name\":\"admin2\", \"password\":\"admin\",\"email\":\"admin@admin.com\",\"user_role\":\"" + staffRoleAdmin + "\"}";
+		DataUtil dataUtil = new DataUtil();
+		dataUtil.createStaffAdminIntoDatabase();
 
-		// first registration
+		String jsonRequest = "{\"name\":\"" + "differentName" + "\", \"last_name\":\"" + nameValue + "\", \"password\":\"" + passwordValue + "\",\"email\":\"" + emailValue + "\",\"user_role\":\"" + staffRoleAdmin + "\"}";
 		mockMvc.perform(post("/api/staff/register")
 						.contentType("application/json")
-						.content(firstJsonRequest));
-
-		// second registration
-		mockMvc.perform(post("/api/staff/register")
-						.contentType("application/json")
-						.content(secondJsonRequest))
+						.content(jsonRequest))
 				.andExpect(status().isConflict())
 				.andExpect(jsonPath("$.error.message").value(emailAlreadyExists));
+
 	}
 
 
