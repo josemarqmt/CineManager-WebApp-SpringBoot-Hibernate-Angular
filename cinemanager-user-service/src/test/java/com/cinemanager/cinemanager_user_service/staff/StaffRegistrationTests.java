@@ -109,6 +109,10 @@ class StaffRegistrationTests {
 				.andExpect(jsonPath("$.last_name").value(nameValue))
 				.andExpect(jsonPath("$.email").value(emailValue))
 				.andExpect(jsonPath("$.user_role").value(staffRoleEmployee));
+
+		// Check in database
+		DataUtil dataUtil = new DataUtil();
+		assert dataUtil.isStaffEmployee(jsonPath("$.id").value(String.class).toString());
 	}
 
 	@Test
@@ -124,6 +128,10 @@ class StaffRegistrationTests {
 				.andExpect(jsonPath("$.last_name").value(nameValue))
 				.andExpect(jsonPath("$.email").value(emailValue))
 				.andExpect(jsonPath("$.user_role").value(staffRoleSupervisor));
+
+		// Check in database
+		DataUtil dataUtil = new DataUtil();
+		assert dataUtil.isStaffSupervisor(jsonPath("$.id").value(String.class).toString());
 	}
 
 	@Test
@@ -139,6 +147,10 @@ class StaffRegistrationTests {
 				.andExpect(jsonPath("$.last_name").value(nameValue))
 				.andExpect(jsonPath("$.email").value(emailValue))
 				.andExpect(jsonPath("$.user_role").value(staffRoleAdmin));
+
+		// Check in database
+		DataUtil dataUtil = new DataUtil();
+		assert dataUtil.isStaffAdmin(jsonPath("$.id").value(String.class).toString());
 	}
 
 	@Test
