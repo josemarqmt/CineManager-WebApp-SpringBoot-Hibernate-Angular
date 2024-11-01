@@ -1,0 +1,28 @@
+staff_role:
+  admin: "ADMIN"
+  supervisor: "SUPERVISOR"
+  employee: "EMPLOYEE"
+
+error_messages:
+  missing_fields: "Missing fields: $.error.missing_fields"
+  name_already_exists: "name already exists"
+  email_already_exists: "Email already exists"
+  user_role_not_found: "User role not found"
+  name_invalid_format:
+    alphanumeric: "name must be alphanumeric"
+    between_3_and_20_characters: "name must be between 3 and 20 characters"
+  email_invalid_format: email must have a valid format
+  password_invalid_format:
+    at_least_one_special_character: "Password must have at least one special character"
+    at_least_one_lowercase: "Password must have at least one lowercase letter"
+    at_least_one_uppercase: "Password must have at least one uppercase letter"
+    at_least_one_number: "Password must have at least one number"
+    more_than_thirty: "Password must be between 8 and 30 characters"
+    less_than_eight: "Password must be between 8 and 30 characters"
+
+fields:
+  name: "name"
+  last_name: "last_name"
+  password: "password"
+  email: "email"
+  user_role: "user_role"
